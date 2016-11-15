@@ -1,10 +1,10 @@
-package com.Solncev;
+package com.solncev;
 
 /**
  * Created by Марат on 14.11.2016.
  */
-public class Answer {
-    public String getAnswer(int a, int b) {
+public class AnswerGenerator {
+    public String createAnswer(int a, int b) {
         StringBuilder builder = new StringBuilder();
         builder.append("When you divide ");
         builder.append(a);
@@ -15,7 +15,7 @@ public class Answer {
         Divider d = new Divider();
         builder.append(d.getIntegerPart(a, b));
         builder.append(" and rest = ");
-        Rest r = new Rest();
+        RestCalculator r = new RestCalculator();
         builder.append(r.getRest(a, b));
         return builder.toString();
     }

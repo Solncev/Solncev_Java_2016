@@ -4,23 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>parent</artifactId>
-        <groupId>com.Solncev</groupId>
+        <groupId>com.solncev</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>A</artifactId>
-    <dependencies>
-        <dependency>
-            <groupId>com.Solncev</groupId>
-            <artifactId>C</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.Solncev</groupId>
-            <artifactId>B</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
+
+    <artifactId>C</artifactId>
     <properties>
         <java.version>1.8</java.version>
     </properties>
@@ -35,13 +24,7 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <inherited>true</inherited>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <configuration>
-                    <updateReleaseInfo>true</updateReleaseInfo>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
+
 </project>
