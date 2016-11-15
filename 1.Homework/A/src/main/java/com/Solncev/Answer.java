@@ -1,13 +1,9 @@
 package com.Solncev;
 
-import javafx.scene.control.SplitPane;
-
 /**
  * Created by Марат on 14.11.2016.
  */
 public class Answer {
-
-
     public String getAnswer(int a, int b) {
         StringBuilder builder = new StringBuilder();
         builder.append("When you divide ");
