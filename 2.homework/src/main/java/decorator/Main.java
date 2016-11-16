@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(new File("../2.homework/src/main/resources/in.txt")));
+        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(new File("src/main/resources/in.txt")));
         CaeserReader caeserReader = new CaeserReader(inputStreamReader);
         int c;
         while ((c = caeserReader.read()) != -1) {

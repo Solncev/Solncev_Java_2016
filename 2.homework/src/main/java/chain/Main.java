@@ -6,9 +6,8 @@ import java.util.List;
 /**
  * Created by Марат on 15.11.2016.
  */
-public class ChainTest {
+public class Main {
     public static void main(String[] args) {
-
         Logger logger = new InfoLogger();
         Logger warnLogger = new WarnLogger();
         Logger errorLogger = new ErrorLogger();
@@ -23,7 +22,7 @@ public class ChainTest {
         String invalidMessage = "[LOL] : [lol lol]";
 
 
-        List<String> messages = new ArrayList<String>();
+        List<String> messages = new ArrayList<>();
         messages.add(infoMessage);
         messages.add(warnMessage);
         messages.add(errorMessage);

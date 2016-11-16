@@ -12,23 +12,23 @@ public abstract class Logger {
         this.nextLogger = nextLogger;
     }
 
-    public void log(String request) {
-        if (this.level.equals(getLevel(request))) {
-            String[] s = request.split(" : ");
-            String message = s[1];
+    public void log(String message) {
+        if (this.level.equals(getLevel(message))) {
+            String[] s = message.split(" : ");
+            String text = s[1];
             if (nextLogger != null) {
-                nextLogger.log(request);
+                nextLogger.log(message);
             }
-            write(message);
+            write(text);
         } else {
             if (nextLogger != null) {
-                nextLogger.log(request);
+                nextLogger.log(message);
             }
         }
     }
 
-    private String getLevel(String request) {
-        String[] s = request.split(" : ");
+    private String getLevel(String message) {
+        String[] s = message.split(" : ");
         String pr = s[0];
         pr = pr.substring(1, pr.length() - 1);
         return pr;
