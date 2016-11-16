@@ -1,32 +1,33 @@
 package chain;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Марат on 15.11.2016.
  */
 public class ChainTest {
-    private static Logger getLogger(int level) {
-        Logger infoLogger = new InfoLogger(Logger.INFO);
-        Logger warnLogger = new WarnLogger(Logger.WARN);
-        Logger errorLogger = new ErrorLogger(Logger.ERROR);
-
-        errorLogger.setNextLogger(infoLogger);
-        if (level == 3) {
-            return errorLogger;
-        } else {
-            if (level == 2)
-                return warnLogger;
-        }
-        return infoLogger;
-    }
-
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String s = scanner.nextLine();
-        String[] strings = s.split(":");
-        int level = Integer.parseInt(String.valueOf(strings[0].charAt(1)));
-        Logger logger = getLogger(level);
-        logger.logMessage(level, strings[1]);
+
+        Logger logger = new InfoLogger();
+        Logger warnLogger = new WarnLogger();
+        Logger errorLogger = new ErrorLogger();
+
+        warnLogger.setNext(errorLogger);
+        logger.setNext(warnLogger);
+//        errorLogger.setNext(logger);
+
+        String infoMessage = "[INFO] : [some info here]";
+        String warnMessage = "[WARN] : [warning]";
+        String errorMessage = "[ERROR] : [exception in some modules]";
+        String invalidMessage = "[LOL] : [lol lol]";
+
+
+        List<String> messages = new ArrayList<String>();
+        messages.add(infoMessage);
+        messages.add(warnMessage);
+        messages.add(errorMessage);
+        messages.add(invalidMessage);
+        messages.forEach(warnLogger::log);
     }
 }
