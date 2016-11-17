@@ -27,5 +27,6 @@ public class Main {
         messages.add(errorMessage);
         messages.add(invalidMessage);
         messages.forEach(logger::log);
+
     }
 }

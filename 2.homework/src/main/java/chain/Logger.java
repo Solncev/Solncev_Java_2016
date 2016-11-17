@@ -4,7 +4,7 @@ package chain;
  * Created by Марат on 15.11.2016.
  */
 public abstract class Logger {
-    protected String level;
+    protected Level level;
 
     protected Logger nextLogger;
 
@@ -20,6 +20,8 @@ public abstract class Logger {
         pr = pr.substring(1, pr.length() - 1);
         return pr;
     }
+
+    protected abstract boolean isCorrect(String message);
 
 
     abstract protected void write(String message);

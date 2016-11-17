@@ -1,16 +1,19 @@
 package chain;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Created by Марат on 15.11.2016.
  */
 public class ErrorLogger extends Logger {
     public ErrorLogger() {
-        this.level = "ERROR";
+        level = Level.ERROR;
     }
 
     @Override
     public void log(String message) {
-        if (this.level.equals(getLevel(message))) {
+        if (isCorrect(message)) {
             String[] s = message.split(" : ");
             String text = s[1];
             write(text);
@@ -19,6 +22,13 @@ public class ErrorLogger extends Logger {
         if (nextLogger != null) {
             nextLogger.log(message);
         }
+    }
+
+    @Override
+    protected boolean isCorrect(String message) {
+        Pattern p = Pattern.compile("^\\[ERROR\\] : \\[.*\\]$");
+        Matcher m = p.matcher(message);
+        return m.matches();
     }
 
     protected void write(String message) {
