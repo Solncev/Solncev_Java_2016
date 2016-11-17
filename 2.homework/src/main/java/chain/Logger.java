@@ -12,22 +12,9 @@ public abstract class Logger {
         this.nextLogger = nextLogger;
     }
 
-    public void log(String message) {
-        if (this.level.equals(getLevel(message))) {
-            String[] s = message.split(" : ");
-            String text = s[1];
-            if (nextLogger != null) {
-                nextLogger.log(message);
-            }
-            write(text);
-        } else {
-            if (nextLogger != null) {
-                nextLogger.log(message);
-            }
-        }
-    }
+    public abstract void log(String message);
 
-    private String getLevel(String message) {
+    protected static String getLevel(String message) {
         String[] s = message.split(" : ");
         String pr = s[0];
         pr = pr.substring(1, pr.length() - 1);

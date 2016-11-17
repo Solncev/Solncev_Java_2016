@@ -8,7 +8,20 @@ public class WarnLogger extends Logger {
         this.level = "WARN";
     }
 
+    @Override
+    public void log(String message) {
+        if (this.level.equals(getLevel(message))) {
+            String[] s = message.split(" : ");
+            String text = s[1];
+            write(text);
+
+        }
+        if (nextLogger != null) {
+            nextLogger.log(message);
+        }
+    }
+
     protected void write(String message) {
-        System.out.println("WARN: " + message);
+        System.out.println(message);
     }
 }

@@ -8,7 +8,20 @@ public class InfoLogger extends Logger {
         this.level = "INFO";
     }
 
+    @Override
+    public void log(String message) {
+        if (this.level.equals(getLevel(message)) || getLevel(message).equals("ERROR")) {
+            String[] s = message.split(" : ");
+            String text = s[1];
+            write(text);
+
+        }
+        if (nextLogger != null) {
+            nextLogger.log(message);
+        }
+    }
+
     protected void write(String message) {
-        System.out.println("INFO: " + message);
+        System.out.println(message);
     }
 }

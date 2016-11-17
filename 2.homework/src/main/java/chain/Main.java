@@ -14,7 +14,6 @@ public class Main {
 
         warnLogger.setNext(errorLogger);
         logger.setNext(warnLogger);
-//        errorLogger.setNext(logger);
 
         String infoMessage = "[INFO] : [some info here]";
         String warnMessage = "[WARN] : [warning]";
@@ -27,6 +26,6 @@ public class Main {
         messages.add(warnMessage);
         messages.add(errorMessage);
         messages.add(invalidMessage);
-        messages.forEach(warnLogger::log);
+        messages.forEach(logger::log);
     }
 }
