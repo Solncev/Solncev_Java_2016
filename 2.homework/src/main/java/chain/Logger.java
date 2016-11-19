@@ -12,17 +12,18 @@ public abstract class Logger {
         this.nextLogger = nextLogger;
     }
 
-    public abstract void log(String message);
+    public void log(String message) {
+        if (isCorrect(message)) {
+            String text = message.substring(message.indexOf('[', 2), message.length());
+            write(text);
 
-    protected static String getLevel(String message) {
-        String[] s = message.split(" : ");
-        String pr = s[0];
-        pr = pr.substring(1, pr.length() - 1);
-        return pr;
+        }
+        if (nextLogger != null) {
+            nextLogger.log(message);
+        }
     }
 
     protected abstract boolean isCorrect(String message);
-
 
     abstract protected void write(String message);
 }

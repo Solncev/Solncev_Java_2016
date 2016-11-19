@@ -12,19 +12,6 @@ public class ErrorLogger extends Logger {
     }
 
     @Override
-    public void log(String message) {
-        if (isCorrect(message)) {
-            String[] s = message.split(" : ");
-            String text = s[1];
-            write(text);
-
-        }
-        if (nextLogger != null) {
-            nextLogger.log(message);
-        }
-    }
-
-    @Override
     protected boolean isCorrect(String message) {
         Pattern p = Pattern.compile("^\\[ERROR\\] : \\[.*\\]$");
         Matcher m = p.matcher(message);
