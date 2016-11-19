@@ -1,6 +1,8 @@
 package chain;
 
+import java.util.Arrays;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * Created by Марат on 15.11.2016.
@@ -38,11 +40,10 @@ public abstract class Logger {
     }
 
     private void generatePattern(Level... level) {
-        String pLevel = EMPTY_STRING;
-        for (Level level1 : level) {
-            pLevel += level1.toString() + OR;
-        }
-        pLevel = pLevel.substring(0, pLevel.length() - 1);//delete last '|'
+        String pLevel = Arrays.stream(level).map(Enum::toString)
+                .collect(Collectors.toList())
+                .stream()
+                .reduce((s, s2) -> s + '|' + s2).get();
         pattern = Pattern.compile("^\\[(" + pLevel + ")\\] : \\[.*\\]$");
     }
 }
