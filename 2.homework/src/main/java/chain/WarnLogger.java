@@ -1,6 +1,5 @@
 package chain;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -9,12 +8,6 @@ import java.util.regex.Pattern;
 public class WarnLogger extends Logger {
     public WarnLogger() {
         level = Level.WARN;
-    }
-
-    @Override
-    protected boolean isCorrect(String message) {
-        Pattern p = Pattern.compile("^\\[WARN\\] : \\[.*\\]$");
-        Matcher m = p.matcher(message);
-        return m.matches();
+        pattern = Pattern.compile("^\\[WARN\\] : \\[.*\\]$");
     }
 }
