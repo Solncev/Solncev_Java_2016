@@ -16,7 +16,6 @@ public abstract class Logger {
         if (isCorrect(message)) {
             String text = message.substring(message.indexOf('[', 2), message.length());
             write(text);
-
         }
         if (nextLogger != null) {
             nextLogger.log(message);
@@ -25,5 +24,7 @@ public abstract class Logger {
 
     protected abstract boolean isCorrect(String message);
 
-    abstract protected void write(String message);
+    protected void write(String message) {
+        System.out.println(message);
+    }
 }

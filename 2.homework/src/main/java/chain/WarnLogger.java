@@ -17,8 +17,4 @@ public class WarnLogger extends Logger {
         Matcher m = p.matcher(message);
         return m.matches();
     }
-
-    protected void write(String message) {
-        System.out.println(message);
-    }
 }
