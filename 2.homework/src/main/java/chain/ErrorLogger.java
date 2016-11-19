@@ -7,7 +7,6 @@ import java.util.regex.Pattern;
  */
 public class ErrorLogger extends Logger {
     public ErrorLogger() {
-        level = Level.ERROR;
         pattern = Pattern.compile("^\\[ERROR\\] : \\[.*\\]$");
     }
 }

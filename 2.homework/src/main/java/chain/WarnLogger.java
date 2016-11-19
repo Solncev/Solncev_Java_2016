@@ -7,7 +7,6 @@ import java.util.regex.Pattern;
  */
 public class WarnLogger extends Logger {
     public WarnLogger() {
-        level = Level.WARN;
         pattern = Pattern.compile("^\\[WARN\\] : \\[.*\\]$");
     }
 }

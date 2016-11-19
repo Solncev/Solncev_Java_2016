@@ -7,7 +7,6 @@ import java.util.regex.Pattern;
  */
 public class InfoLogger extends Logger {
     public InfoLogger() {
-        level = Level.INFO;
         pattern = Pattern.compile("^\\[(INFO|ERROR)\\] : \\[.*\\]$");
     }
 }

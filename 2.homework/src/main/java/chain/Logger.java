@@ -1,13 +1,11 @@
 package chain;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * Created by Марат on 15.11.2016.
  */
 public abstract class Logger {
-    protected Level level;
     protected Pattern pattern;
 
     protected Logger nextLogger;
@@ -17,7 +15,7 @@ public abstract class Logger {
     }
 
     public void log(String message) {
-        if (isCorrect(message, pattern)) {
+        if (isMessageCorrect(message)) {
             String text = message.substring(message.indexOf('[', 2), message.length());
             System.out.println(text);
         }
@@ -26,8 +24,7 @@ public abstract class Logger {
         }
     }
 
-    protected boolean isCorrect(String message, Pattern pattern) {
-        Matcher m = pattern.matcher(message);
-        return m.matches();
+    protected boolean isMessageCorrect(String message) {
+        return pattern.matcher(message).matches();
     }
 }
