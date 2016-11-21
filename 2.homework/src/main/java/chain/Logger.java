@@ -1,17 +1,32 @@
 package chain;
 
+import java.util.Arrays;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * Created by Марат on 15.11.2016.
  */
 public abstract class Logger {
-    protected Pattern pattern;
 
-    protected Logger nextLogger;
+    private Logger nextLogger;
+    private Pattern pattern;
+
+    Logger(Level... level) {
+        generatePattern(level);
+    }
 
     public void setNext(Logger nextLogger) {
         this.nextLogger = nextLogger;
+    }
+
+    private void generatePattern(Level... level) {
+        String pLevel = Arrays.stream(level).map(Enum::toString)
+                .collect(Collectors.toList())
+                .stream()
+                .reduce((s, s2) -> s + '|' + s2).get();
+        pattern = Pattern.compile("^\\[(" + pLevel + ")\\] : \\[.*\\]$");
+
     }
 
     public void log(String message) {
