@@ -60,11 +60,11 @@ public class Message {
         this.recipientId = recipientId;
     }
 
-    public String getCreated_at() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreated_at(String created_at) {
+    public void setCreatedAt(String created_at) {
         this.createdAt = created_at;
     }
 
