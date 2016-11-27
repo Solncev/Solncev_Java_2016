@@ -64,8 +64,8 @@ public class Message {
         return createdAt;
     }
 
-    public void setCreatedAt(String created_at) {
-        this.createdAt = created_at;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
     public String getStatus() {
