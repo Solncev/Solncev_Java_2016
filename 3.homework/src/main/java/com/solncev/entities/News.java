@@ -6,23 +6,20 @@ package com.solncev.entities;
 public class News {
     private long id;
     private String text;
-    private long community_id;
-    private long author_id;
-    private String created_at;
+    private long communityId;
+    private long authorId;
+    private String createdAt;
 
-    public News(long id, String text, long community_id, long author_id, String created_at) {
+    public News(long id, String text, long communityId, long authorId, String createdAt) {
+        this(text, communityId, authorId, createdAt);
         this.id = id;
-        this.text = text;
-        this.community_id = community_id;
-        this.author_id = author_id;
-        this.created_at = created_at;
     }
 
-    public News(String text, long community_id, long author_id, String created_at) {
+    public News(String text, long communityId, long authorId, String createdAt) {
         this.text = text;
-        this.community_id = community_id;
-        this.author_id = author_id;
-        this.created_at = created_at;
+        this.communityId = communityId;
+        this.authorId = authorId;
+        this.createdAt = createdAt;
     }
 
     public News() {
@@ -45,27 +42,27 @@ public class News {
         this.text = text;
     }
 
-    public long getCommunity_id() {
-        return community_id;
+    public long getCommunityId() {
+        return communityId;
     }
 
-    public void setCommunity_id(long community_id) {
-        this.community_id = community_id;
+    public void setCommunityId(long communityId) {
+        this.communityId = communityId;
     }
 
-    public long getAuthor_id() {
-        return author_id;
+    public long getAuthorId() {
+        return authorId;
     }
 
-    public void setAuthor_id(long author_id) {
-        this.author_id = author_id;
+    public void setAuthorId(long authorId) {
+        this.authorId = authorId;
     }
 
-    public String getCreated_at() {
-        return created_at;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 }

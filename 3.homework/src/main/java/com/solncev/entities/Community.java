@@ -7,22 +7,19 @@ public class Community {
     private long id;
     private String name;
     private String description;
-    private long founder_id;
-    private String created_at;
+    private long founderId;
+    private String createdAt;
 
-    public Community(long id, String name, String description, long founder_id, String created_at) {
+    public Community(long id, String name, String description, long founderId, String createdAt) {
+        this(name, description, founderId, createdAt);
         this.id = id;
-        this.name = name;
-        this.description = description;
-        this.founder_id = founder_id;
-        this.created_at = created_at;
     }
 
-    public Community(String name, String description, long founder_id, String created_at) {
+    public Community(String name, String description, long founderId, String createdAt) {
         this.name = name;
         this.description = description;
-        this.founder_id = founder_id;
-        this.created_at = created_at;
+        this.founderId = founderId;
+        this.createdAt = createdAt;
     }
 
     public Community() {
@@ -53,19 +50,19 @@ public class Community {
         this.description = description;
     }
 
-    public long getFounder_id() {
-        return founder_id;
+    public long getFounderId() {
+        return founderId;
     }
 
-    public void setFounder_id(long founder_id) {
-        this.founder_id = founder_id;
+    public void setFounderId(long founderId) {
+        this.founderId = founderId;
     }
 
-    public String getCreated_at() {
-        return created_at;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 }

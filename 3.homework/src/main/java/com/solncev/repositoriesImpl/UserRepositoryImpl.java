@@ -1,6 +1,6 @@
 package com.solncev.repositoriesImpl;
 
-import com.solncev.connections.ConnectionSingleton;
+import com.solncev.connections.ConnectionHelper;
 import com.solncev.entities.User;
 import com.solncev.repositories.UserRepository;
 
@@ -15,7 +15,7 @@ import java.util.List;
  * Created by Марат on 25.11.2016.
  */
 public class UserRepositoryImpl implements UserRepository {
-    String request1 = "WITH users_count AS (SELECT\n" +
+    private final static String selectForWinter = "WITH users_count AS (SELECT\n" +
             "                       u.id,\n" +
             "                       u.name,\n" +
             "                       u.surname,\n" +
@@ -46,7 +46,7 @@ public class UserRepositoryImpl implements UserRepository {
             "FROM users_count\n" +
             "WHERE c = (SELECT max(users_count.c)\n" +
             "           FROM users_count)";
-    String request2 = "WITH users_count AS (SELECT\n" +
+    private final static String selectForSpring = "WITH users_count AS (SELECT\n" +
             "                       u.id,\n" +
             "                       u.name,\n" +
             "                       u.surname,\n" +
@@ -77,7 +77,7 @@ public class UserRepositoryImpl implements UserRepository {
             "FROM users_count\n" +
             "WHERE c = (SELECT max(users_count.c)\n" +
             "           FROM users_count)";
-    String request3 = "WITH users_count AS (SELECT\n" +
+    private final static String selectForSummer = "WITH users_count AS (SELECT\n" +
             "                       u.id,\n" +
             "                       u.name,\n" +
             "                       u.surname,\n" +
@@ -108,7 +108,7 @@ public class UserRepositoryImpl implements UserRepository {
             "FROM users_count\n" +
             "WHERE c = (SELECT max(users_count.c)\n" +
             "           FROM users_count)";
-    String request4 = "WITH users_count AS (SELECT\n" +
+    private final static String selectForAutumn = "WITH users_count AS (SELECT\n" +
             "                       u.id,\n" +
             "                       u.name,\n" +
             "                       u.surname,\n" +
@@ -139,7 +139,7 @@ public class UserRepositoryImpl implements UserRepository {
             "FROM users_count\n" +
             "WHERE c = (SELECT max(users_count.c)\n" +
             "           FROM users_count)";
-    String request5 = "WITH users_address AS (SELECT\n" +
+    private final static String selectForAddress = "WITH users_address AS (SELECT\n" +
             "                         u.id,\n" +
             "                         u.name,\n" +
             "                         u.surname,\n" +
@@ -171,14 +171,16 @@ public class UserRepositoryImpl implements UserRepository {
             "WHERE c = (SELECT max(users_address.c)\n" +
             "           FROM users_address);";
 
-    private Connection connection = ConnectionSingleton.getConnection();
+    private final static String insertQuery = "insert INTO users(name, surname, email, password, role, status)" +
+            " VALUES (?,?,?,?,?,?)";
+
+    private Connection connection = ConnectionHelper.getConnection();
 
     @Override
     public void add(User user) {
         PreparedStatement preparedStatement = null;
         try {
-            preparedStatement = connection.prepareStatement("insert INTO users(name, surname, email, password, role, status)" +
-                    " VALUES (?,?,?,?,?,?)");
+            preparedStatement = connection.prepareStatement(insertQuery);
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getSurname());
             preparedStatement.setString(3, user.getEmail());
@@ -199,16 +201,16 @@ public class UserRepositoryImpl implements UserRepository {
         try {
             switch (season) {
                 case "winter":
-                    preparedStatement = connection.prepareStatement(request1);
+                    preparedStatement = connection.prepareStatement(selectForWinter);
                     break;
                 case "spring":
-                    preparedStatement = connection.prepareStatement(request2);
+                    preparedStatement = connection.prepareStatement(selectForSpring);
                     break;
                 case "summer":
-                    preparedStatement = connection.prepareStatement(request3);
+                    preparedStatement = connection.prepareStatement(selectForSummer);
                     break;
                 case "autumn":
-                    preparedStatement = connection.prepareStatement(request4);
+                    preparedStatement = connection.prepareStatement(selectForAutumn);
                     break;
             }
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -236,7 +238,7 @@ public class UserRepositoryImpl implements UserRepository {
         List<User> users = new ArrayList<>();
         PreparedStatement preparedStatement = null;
         try {
-            preparedStatement = connection.prepareStatement(request5);
+            preparedStatement = connection.prepareStatement(selectForAddress);
             preparedStatement.setString(1, "%" + address + "%");
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {

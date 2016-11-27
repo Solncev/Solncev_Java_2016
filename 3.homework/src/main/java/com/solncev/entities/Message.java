@@ -6,25 +6,21 @@ package com.solncev.entities;
 public class Message {
     private long id;
     private String text;
-    private long sender_id;
-    private long recipient_id;
-    private String created_at;
+    private long senderId;
+    private long recipientId;
+    private String createdAt;
     private String status;
 
-    public Message(long id, String text, long sender_id, long recipient_id, String created_at, String status) {
+    public Message(long id, String text, long senderId, long recipientId, String createdAt, String status) {
+        this(text, senderId, recipientId, createdAt, status);
         this.id = id;
-        this.text = text;
-        this.sender_id = sender_id;
-        this.recipient_id = recipient_id;
-        this.created_at = created_at;
-        this.status = status;
     }
 
-    public Message(String text, long sender_id, long recipient_id, String created_at, String status) {
+    public Message(String text, long senderId, long recipientId, String createdAt, String status) {
         this.text = text;
-        this.sender_id = sender_id;
-        this.recipient_id = recipient_id;
-        this.created_at = created_at;
+        this.senderId = senderId;
+        this.recipientId = recipientId;
+        this.createdAt = createdAt;
         this.status = status;
     }
 
@@ -48,28 +44,28 @@ public class Message {
         this.text = text;
     }
 
-    public long getSender_id() {
-        return sender_id;
+    public long getSenderId() {
+        return senderId;
     }
 
-    public void setSender_id(long sender_id) {
-        this.sender_id = sender_id;
+    public void setSenderId(long senderId) {
+        this.senderId = senderId;
     }
 
-    public long getRecipient_id() {
-        return recipient_id;
+    public long getRecipientId() {
+        return recipientId;
     }
 
-    public void setRecipient_id(long recipient_id) {
-        this.recipient_id = recipient_id;
+    public void setRecipientId(long recipientId) {
+        this.recipientId = recipientId;
     }
 
     public String getCreated_at() {
-        return created_at;
+        return createdAt;
     }
 
     public void setCreated_at(String created_at) {
-        this.created_at = created_at;
+        this.createdAt = created_at;
     }
 
     public String getStatus() {

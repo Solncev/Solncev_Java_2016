@@ -5,35 +5,28 @@ package com.solncev.entities;
  */
 public class Request {
     private long id;
-    private long needy_id;
-    private long volunteer_id;
+    private long needyId;
+    private long volunteerId;
     private String address;
     private double latitude;
     private double longitude;
-    private String created_at;
-    private String service_type;
+    private String createdAt;
+    private String serviceType;
     private String status;
 
-    public Request(long id, long needy_id, long volunteer_id, String address, double latitude, double longitude, String created_at, String service_type, String status) {
+    public Request(long id, long needyId, long volunteerId, String address, double latitude, double longitude, String createdAt, String serviceType, String status) {
+        this(needyId, volunteerId, address, latitude, longitude, createdAt, serviceType, status);
         this.id = id;
-        this.needy_id = needy_id;
-        this.volunteer_id = volunteer_id;
-        this.address = address;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.created_at = created_at;
-        this.service_type = service_type;
-        this.status = status;
     }
 
-    public Request(long needy_id, long volunteer_id, String address, double latitude, double longitude, String created_at, String service_type, String status) {
-        this.needy_id = needy_id;
-        this.volunteer_id = volunteer_id;
+    public Request(long needyId, long volunteerId, String address, double latitude, double longitude, String createdAt, String serviceType, String status) {
+        this.needyId = needyId;
+        this.volunteerId = volunteerId;
         this.address = address;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.created_at = created_at;
-        this.service_type = service_type;
+        this.createdAt = createdAt;
+        this.serviceType = serviceType;
         this.status = status;
     }
 
@@ -49,20 +42,20 @@ public class Request {
         this.id = id;
     }
 
-    public long getNeedy_id() {
-        return needy_id;
+    public long getNeedyId() {
+        return needyId;
     }
 
-    public void setNeedy_id(long needy_id) {
-        this.needy_id = needy_id;
+    public void setNeedyId(long needyId) {
+        this.needyId = needyId;
     }
 
-    public long getVolunteer_id() {
-        return volunteer_id;
+    public long getVolunteerId() {
+        return volunteerId;
     }
 
-    public void setVolunteer_id(long volunteer_id) {
-        this.volunteer_id = volunteer_id;
+    public void setVolunteerId(long volunteerId) {
+        this.volunteerId = volunteerId;
     }
 
     public String getAddress() {
@@ -89,20 +82,20 @@ public class Request {
         this.longitude = longitude;
     }
 
-    public String getCreated_at() {
-        return created_at;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public String getService_type() {
-        return service_type;
+    public String getServiceType() {
+        return serviceType;
     }
 
-    public void setService_type(String service_type) {
-        this.service_type = service_type;
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
     }
 
     public String getStatus() {

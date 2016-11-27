@@ -17,13 +17,8 @@ public class User {
     }
 
     public User(long id, String name, String surname, String email, String password, String role, String status) {
+        this(name, surname, email, password, role, status);
         this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-        this.status = status;
     }
 
     public User(String name, String surname, String email, String password, String role, String status) {
