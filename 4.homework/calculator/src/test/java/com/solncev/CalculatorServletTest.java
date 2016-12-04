@@ -23,36 +23,24 @@ public class CalculatorServletTest {
     private static HttpServletRequest request;
 
     @BeforeClass
-    public static void setUp() {
+    public static void setUp() throws IOException {
         calculatorServlet = new CalculatorServlet();
         request = mock(HttpServletRequest.class);
         response = mock(HttpServletResponse.class);
         PrintWriter printWriter = mock(PrintWriter.class);
         when(request.getRequestURI()).thenReturn(INPUT);
-        try {
-            when(response.getWriter()).thenReturn(printWriter);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        when(response.getWriter()).thenReturn(printWriter);
     }
 
     @Test
-    public void doPostShouldSetResponseStatus() {
-        try {
-            calculatorServlet.doPost(request, response);
-        } catch (ServletException | IOException e) {
-            e.printStackTrace();
-        }
+    public void doPostShouldSetResponseStatus() throws ServletException, IOException {
+        calculatorServlet.doPost(request, response);
         verify(response).setStatus(405);
     }
 
     @Test
-    public void doGetShouldWorkCorrectly() {
-        try {
-            new CalculatorServlet().doGet(request, response);
-        } catch (ServletException | IOException e) {
-            e.printStackTrace();
-        }
+    public void doGetShouldWorkCorrectly() throws ServletException, IOException {
+        new CalculatorServlet().doGet(request, response);
         verify(request).getRequestURI();
     }
 }

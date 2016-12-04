@@ -21,9 +21,9 @@ public class CalculatorService {
 
     public String getResult(String s) {
         if (isRequestCorrect(s)) {
-            int[] arr = parser.getNumbers(s);
-            a = arr[0];
-            b = arr[1];
+            int[] numbers = parser.getNumbers(s);
+            a = numbers[0];
+            b = numbers[1];
             Operator operator = parser.getOperator(s);
             switch (operator) {
                 case DIV:
