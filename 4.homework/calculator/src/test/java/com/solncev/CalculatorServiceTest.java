@@ -1,5 +1,6 @@
 package com.solncev;
 
+import com.solncev.enums.Operator;
 import com.solncev.services.CalculatorService;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -12,6 +13,9 @@ public class CalculatorServiceTest {
     private static final String INPUT = "/calculator/1+1";
     private static final String INCORRECT_INPUT = "/calculator/r+1";
     private static final String RESULT = "2";
+    private static final int A = 1;
+    private static final int B = 1;
+    private static final Operator OPERATOR = Operator.PLUS;
     private static final String ERROR = "request is invalid";
     private static CalculatorService calculatorService;
 
@@ -21,14 +25,20 @@ public class CalculatorServiceTest {
     }
 
     @Test
-    public void getResultShouldReturnCorrectResult() {
-        Assert.assertEquals(RESULT, calculatorService.getResult(INPUT));
+    public void getAnswerShouldReturnCorrectAnswer() {
+        Assert.assertEquals(RESULT, calculatorService.getAnswer(INPUT));
     }
 
     @Test
-    public void getResultShouldReturnErrorMessage() {
-        Assert.assertEquals(ERROR, calculatorService.getResult(INCORRECT_INPUT));
+    public void getAnswerShouldReturnErrorMessage() {
+        Assert.assertEquals(ERROR, calculatorService.getAnswer(INCORRECT_INPUT));
     }
+
+    @Test
+    public void getResultShouldReturnCorrectResult() {
+        Assert.assertEquals(RESULT, calculatorService.getResult(A, B, OPERATOR));
+    }
+
 
     @Test
     public void isRequestCorrectShouldReturnTrue() {

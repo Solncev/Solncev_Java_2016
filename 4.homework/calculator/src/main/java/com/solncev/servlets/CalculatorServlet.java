@@ -15,7 +15,7 @@ public class CalculatorServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String request = req.getRequestURI();
-        resp.getWriter().print(new CalculatorService().getResult(request));
+        resp.getWriter().print(new CalculatorService().getAnswer(request));
     }
 
     @Override

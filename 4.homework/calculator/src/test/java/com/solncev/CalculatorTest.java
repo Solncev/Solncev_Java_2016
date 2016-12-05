@@ -11,6 +11,8 @@ import org.junit.Test;
 public class CalculatorTest {
     private static final int X = 2;
     private static final int Y = 5;
+    private static final int Z = 0;
+    private static final String ERROR = "wat";
     private static Calculator calculator;
 
     @BeforeClass
@@ -22,7 +24,6 @@ public class CalculatorTest {
     public void sumShouldReturnCorrectSum() {
         Assert.assertEquals(X + Y, calculator.sum(X, Y));
     }
-
 
     @Test
     public void subShouldReturnCorrectSub() {
@@ -36,6 +37,12 @@ public class CalculatorTest {
 
     @Test
     public void divShouldReturnCorrectDiv() {
-        Assert.assertEquals(X / Y, calculator.div(X, Y));
+        Assert.assertEquals("" + X / Y, calculator.div(X, Y));
     }
+
+    @Test
+    public void divShouldReturnErrorMessage() {
+        Assert.assertEquals(ERROR, calculator.div(X, Z));
+    }
+
 }
