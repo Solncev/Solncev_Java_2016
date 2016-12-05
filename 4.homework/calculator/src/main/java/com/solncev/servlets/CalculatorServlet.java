@@ -12,6 +12,7 @@ import java.io.IOException;
  * Created by Марат on 03.12.2016.
  */
 public class CalculatorServlet extends HttpServlet {
+
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String request = req.getRequestURI();

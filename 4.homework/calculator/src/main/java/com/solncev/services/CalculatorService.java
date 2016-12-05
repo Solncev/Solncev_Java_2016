@@ -25,7 +25,7 @@ public class CalculatorService {
             a = numbers[0];
             b = numbers[1];
             Operator operator = parser.getOperator(s);
-            return getResult(a, b, operator);
+            return getResultOfCalculation(a, b, operator);
         } else {
             return ERROR_MESSAGE;
         }
@@ -36,7 +36,7 @@ public class CalculatorService {
         return matcher.matches();
     }
 
-    public String getResult(int a, int b, Operator operator) {
+    public String getResultOfCalculation(int a, int b, Operator operator) {
         String result = "";
         switch (operator) {
             case DIV:

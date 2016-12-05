@@ -29,6 +29,6 @@ public class ParserTest {
 
     @Test
     public void getOperatorShouldReturnCorrectOperator() {
-        Assert.assertTrue(OPERATOR.equals(parser.getOperator(INPUT)));
+        Assert.assertEquals(OPERATOR, parser.getOperator(INPUT));
     }
 }

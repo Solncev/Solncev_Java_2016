@@ -14,6 +14,7 @@ public class CalculatorTest {
     private static final int Z = 0;
     private static final String ERROR = "wat";
     private static Calculator calculator;
+    private static String EMPTY_STRING = "";
 
     @BeforeClass
     public static void setUp() {
@@ -37,7 +38,7 @@ public class CalculatorTest {
 
     @Test
     public void divShouldReturnCorrectDiv() {
-        Assert.assertEquals("" + X / Y, calculator.div(X, Y));
+        Assert.assertEquals(EMPTY_STRING + X / Y, calculator.div(X, Y));
     }
 
     @Test
