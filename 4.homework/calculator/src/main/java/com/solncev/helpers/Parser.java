@@ -38,6 +38,10 @@ public class Parser {
             default:
                 return Operator.PLUS;
         }
+    }
 
+    public boolean isRequestCorrect(String s) {
+        Matcher matcher = pattern.matcher(s);
+        return matcher.matches();
     }
 }

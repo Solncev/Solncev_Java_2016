@@ -4,23 +4,19 @@ import com.solncev.enums.Operator;
 import com.solncev.helpers.Calculator;
 import com.solncev.helpers.Parser;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 /**
  * Created by Марат on 03.12.2016.
  */
 public class CalculatorService {
     private static final String ERROR_MESSAGE = "request is invalid";
+    private static final String DIVIDING_ERROR = "wat";
     private Parser parser = new Parser();
     private Calculator calculator = new Calculator();
-    private Pattern pattern = Pattern.compile("(/calculator/([0-9]+)((\\+|-|\\*|/))" +
-            "([0-9]+))|(/calculator/)|(/calculator)");
     private int a = 0;
     private int b = 0;
 
     public String getAnswer(String s) {
-        if (isRequestCorrect(s)) {
+        if (parser.isRequestCorrect(s)) {
             int[] numbers = parser.getNumbers(s);
             a = numbers[0];
             b = numbers[1];
@@ -31,17 +27,16 @@ public class CalculatorService {
         }
     }
 
-    public boolean isRequestCorrect(String s) {
-        Matcher matcher = pattern.matcher(s);
-        return matcher.matches();
-    }
-
     public String getResultOfCalculation(int a, int b, Operator operator) {
         String result = "";
         switch (operator) {
             case DIV:
-                result += calculator.div(a, b);
-                break;
+                try {
+                    result += calculator.div(a, b);
+                    break;
+                } catch (ArithmeticException e) {
+                    return DIVIDING_ERROR;
+                }
             case MINUS:
                 result += calculator.sub(a, b);
                 break;

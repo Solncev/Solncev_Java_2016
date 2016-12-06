@@ -4,6 +4,8 @@ package com.solncev.helpers;
  * Created by Марат on 03.12.2016.
  */
 public class Calculator {
+    private static final String ERROR = "wat";
+
     public int sum(int x, int y) {
         return x + y;
     }
@@ -16,12 +18,11 @@ public class Calculator {
         return x * y;
     }
 
-    public String div(int x, int y) {
-        if (y != 0) {
-            return "" + x / y;
-        } else {
-            return "wat";
+    public int div(int x, int y) {
+        if (y == 0) {
+            throw new ArithmeticException(ERROR);
         }
+        return x / y;
     }
 
 }

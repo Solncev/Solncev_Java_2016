@@ -44,7 +44,7 @@ public class CalculatorServiceTest {
 
     @Test
     public void getAnswerShouldReturnDividingErrorMessage() {
-        when(calculator.div(A, B)).thenReturn("wat");
+        when(calculator.div(A, B)).thenThrow(new ArithmeticException(DIVIDING_ERROR));
         Assert.assertEquals(DIVIDING_ERROR, calculatorService.getAnswer(INPUT_FOR_DIVIDING));
     }
 
@@ -53,15 +53,4 @@ public class CalculatorServiceTest {
         when(calculator.sub(A, B)).thenReturn(Integer.valueOf(RESULT));
         Assert.assertEquals(RESULT, calculatorService.getResultOfCalculation(A, B, OPERATOR));
     }
-
-    @Test
-    public void isRequestCorrectShouldReturnTrue() {
-        Assert.assertTrue(calculatorService.isRequestCorrect(INPUT));
-    }
-
-    @Test
-    public void isRequestCorrectShouldReturnFalse() {
-        Assert.assertFalse(calculatorService.isRequestCorrect(INCORRECT_INPUT));
-    }
-
 }

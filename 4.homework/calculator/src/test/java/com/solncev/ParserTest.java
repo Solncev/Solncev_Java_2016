@@ -13,6 +13,7 @@ import java.util.Arrays;
  */
 public class ParserTest {
     private static final String INPUT = "/calculator/1+1";
+    private static final String INCORRECT_INPUT = "/calculator/r+1";
     private static final int[] ARRAY = {1, 1};
     private static final Operator OPERATOR = Operator.PLUS;
     private static Parser parser;
@@ -30,5 +31,15 @@ public class ParserTest {
     @Test
     public void getOperatorShouldReturnCorrectOperator() {
         Assert.assertEquals(OPERATOR, parser.getOperator(INPUT));
+    }
+
+    @Test
+    public void isRequestCorrectShouldReturnTrue() {
+        Assert.assertTrue(parser.isRequestCorrect(INPUT));
+    }
+
+    @Test
+    public void isRequestCorrectShouldReturnFalse() {
+        Assert.assertFalse(parser.isRequestCorrect(INCORRECT_INPUT));
     }
 }
