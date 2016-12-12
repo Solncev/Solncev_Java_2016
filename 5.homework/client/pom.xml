@@ -9,6 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>client</artifactId>
+    
+    <dependencies>
+        <dependency>
+            <groupId>com.solncev</groupId>
+            <artifactId>chatwindow</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
     <properties>
         <java.version>1.8</java.version>
@@ -29,7 +37,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>Client</mainClass>
+                            <mainClass>com.solncev.Client</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
