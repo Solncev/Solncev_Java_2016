@@ -25,19 +25,6 @@ public class MainController {
         users = new ArrayList<>();
     }
 
-    private static Date getDate(String date) throws ParseException {
-        if (date.equals("")) {
-            return null;
-        }
-        DateFormat formatter;
-        formatter = new SimpleDateFormat("dd-MM-yyyy");
-        return formatter.parse(date);
-    }
-
-    private static boolean isFormCorrect(String name, String surname, String patronymic) {
-        return !(name.equals("") || surname.equals("") || patronymic.equals(""));
-    }
-
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getIndexPage() {
         return "index";
@@ -61,5 +48,18 @@ public class MainController {
         }
         model.addAttribute("users", users);
         return "table";
+    }
+
+    private static Date getDate(String date) throws ParseException {
+        if (date.equals("")) {
+            return null;
+        }
+        DateFormat formatter;
+        formatter = new SimpleDateFormat("dd-MM-yyyy");
+        return formatter.parse(date);
+    }
+
+    private static boolean isFormCorrect(String name, String surname, String patronymic) {
+        return !(name.equals("") || surname.equals("") || patronymic.equals(""));
     }
 }

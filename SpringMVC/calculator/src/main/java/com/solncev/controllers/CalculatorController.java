@@ -21,13 +21,10 @@ public class CalculatorController {
     }
 
     @RequestMapping(value = "/calculator", method = RequestMethod.POST)
-    public String getAnswerPage(@RequestParam("first") String first,
-                                @RequestParam("second") String second,
-                                @RequestParam("operator") String operator,
-                                Model model) {
+    public String getAnswerPage(@RequestParam("first") String first, @RequestParam("second") String second,
+                                @RequestParam("operator") String operator, Model model) {
         model.addAttribute("answer", calculatorService.getResultOfCalculation(Integer.parseInt(first),
-                Integer.parseInt(second),
-                Operator.valueOf(operator)));
+                Integer.parseInt(second), Operator.valueOf(operator)));
         return "answer";
     }
 }
