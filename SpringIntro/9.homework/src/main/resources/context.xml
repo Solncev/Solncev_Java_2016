@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.solncev.config, com.solncev.entity"/>
+
+    <bean class="com.solncev.entity.impl.Pen" id="pen">
+        <constructor-arg value="black"/>
+    </bean>
+
+    <bean class="com.solncev.entity.impl.Pen" id="pen2">
+        <constructor-arg value="blue"/>
+    </bean>
+
+    <bean class="com.solncev.entity.impl.Satchel" id="satchel">
+        <property name="color" value="blue"/>
+    </bean>
+
+    <bean class="com.solncev.entity.impl.Teacher" id="teacher" scope="prototype">
+        <constructor-arg index="0" value="Arslanov"/>
+        <constructor-arg index="1" value="math"/>
+    </bean>
+
+    <bean class="com.solncev.entity.impl.Textbook" id="math">
+        <constructor-arg value="math"/>
+    </bean>
+
+    <bean class="com.solncev.entity.impl.Student" id="student">
+        <constructor-arg index="0" value="Abbos"/>
+        <constructor-arg index="1" ref="pen"/>
+        <constructor-arg index="2" ref="satchel"/>
+    </bean>
+</beans>
