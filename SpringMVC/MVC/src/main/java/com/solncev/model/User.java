@@ -1,13 +1,10 @@
 package com.solncev.model;
 
-import org.springframework.stereotype.Component;
-
 import java.util.Date;
 
 /**
  * Created by Марат on 19.02.2017.
  */
-@Component
 public class User {
     private String name;
     private String surname;

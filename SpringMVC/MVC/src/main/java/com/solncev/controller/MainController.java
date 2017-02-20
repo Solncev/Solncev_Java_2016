@@ -34,7 +34,7 @@ public class MainController {
         return formatter.parse(date);
     }
 
-    private static boolean isCorrect(String name, String surname, String patronymic) {
+    private static boolean isFormCorrect(String name, String surname, String patronymic) {
         return !(name.equals("") || surname.equals("") || patronymic.equals(""));
     }
 
@@ -51,7 +51,7 @@ public class MainController {
                                @RequestParam("gender") String gender,
                                Model model) {
         User user = null;
-        if (isCorrect(name, surname, patronymic)) {
+        if (isFormCorrect(name, surname, patronymic)) {
             try {
                 user = new User(name, surname, patronymic, getDate(date), gender);
             } catch (ParseException e) {
