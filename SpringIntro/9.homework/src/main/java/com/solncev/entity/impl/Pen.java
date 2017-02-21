@@ -1,7 +1,6 @@
 package com.solncev.entity.impl;
 
 import com.solncev.entity.Stationery;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created by Марат on 18.02.2017.
@@ -9,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class Pen implements Stationery {
     private String color;
 
-    @Autowired
     public Pen(String color) {
         this.color = color;
     }

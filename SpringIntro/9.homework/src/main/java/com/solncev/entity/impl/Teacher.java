@@ -1,7 +1,6 @@
 package com.solncev.entity.impl;
 
 import com.solncev.entity.Pedagogue;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created by Марат on 18.02.2017.
@@ -10,7 +9,6 @@ public class Teacher implements Pedagogue {
     private String name;
     private String subject;
 
-    @Autowired
     public Teacher(String name, String subject) {
         this.name = name;
         this.subject = subject;

@@ -1,7 +1,6 @@
 package com.solncev.entity.impl;
 
 import com.solncev.entity.Book;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created by Марат on 18.02.2017.
@@ -9,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class Textbook implements Book {
     private String name;
 
-    @Autowired
     public Textbook(String name) {
         this.name = name;
     }

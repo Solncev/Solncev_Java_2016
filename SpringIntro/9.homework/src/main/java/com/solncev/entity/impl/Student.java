@@ -3,19 +3,15 @@ package com.solncev.entity.impl;
 import com.solncev.entity.Bag;
 import com.solncev.entity.Learner;
 import com.solncev.entity.Stationery;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Created by Марат on 18.02.2017.
  */
 public class Student implements Learner {
     private String name;
-    @Qualifier("pen")
     private Stationery stationery;
     private Bag bag;
 
-    @Autowired
     public Student(String name, Stationery stationery, Bag bag) {
         this.name = name;
         this.stationery = stationery;
