@@ -1,0 +1,6 @@
+id,text,date,sender_id,recipient_id
+101,Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.,11/3/2016,101,101
+102,Nulla ut erat id mauris vulputate elementum. Nullam varius.,12/5/2016,101,101
+103,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",6/28/2016,101,102
+104,Donec semper sapien a libero.,6/7/2016,101,102
+105,In sagittis dui vel nisl.,9/25/2016,102,101

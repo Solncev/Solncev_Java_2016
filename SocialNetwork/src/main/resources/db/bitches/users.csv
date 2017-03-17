@@ -1,0 +1,3 @@
+ID,EMAIL,PASSWORD,SEX
+101,john.does@gmail.com,$2a$04$O/q1wxus022milG4cJ5.c.rAI9tD91e9gVq8g/ucVYI2LIaJYVWqe,MALE
+102,sarah.connor@gmail.com,$2a$04$O/q1wxus022milG4cJ5.c.rAI9tD91e9gVq8g/ucVYI2LIaJYVWqe,FEMALE
